@@ -1,0 +1,36 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/auth/main.js"></script>
+<script src="js/auth/register.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<section class="testimonial py-5" id="testimonial">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md py-0 bg-primary text-white text-center ">
+                <div class=" ">
+                        <h2 class="py-3">Registration</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md py-5 border">
+                <h4 class="pb-4">Please fill with your details</h4>
+<form action= "api/register" id="submit" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input id="email" name="email" placeholder="email" class="form-control" type="email">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+                      </div>
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-warning">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
