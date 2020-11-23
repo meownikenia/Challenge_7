@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = 3003;
+const swaggerui = require("swagger-ui-express")
+const swaggerfile = require("./swagger.json")
+const cors = require('cors')
 //const bodyParser = require("body-parser");
 
 const adminroute = require("./routes/admin");
@@ -11,8 +14,10 @@ const apiroute = require("./routes/api");
 const hbs = require("hbs");
 const db = require("./models");
 
+app.use(cors())
 //set views file
 app.set("views", path.join(__dirname, "views"));
+app.use("/doc",swaggerui.serve,swaggerui.setup(swaggerfile))
 //set view engine
 app.set("view engine", "hbs");
 

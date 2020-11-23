@@ -3,7 +3,7 @@ const db = require("../models");
 const UserGameBiodata = db.userGameBiodata;
 const UserGame = db.userGame;
 const UserGameHistory = db.userGameHistory;
-
+const Op = db.Sequelize.Op
 
 module.exports = {
     //Create usergame database
@@ -59,6 +59,26 @@ getOneUserGame: (req, res) => {
         });
       });
   },
+
+  // search user game
+  searchUserGame: (req, res) => {
+    const email = req.query.keyword
+    var condition = email ? { email: { [Op.iLike]: `%${email}%` } } : null
+        UserGame.findAll({
+            where:condition,
+            attributes: ['user_id','email', 'password']
+         })
+    //UserGame.findAll() // findAll is function bawaan sequelize
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || "something error to get all user",
+        });
+      });
+  },
+
 
   //update user by id
   updateUserGame: (req, res) => {

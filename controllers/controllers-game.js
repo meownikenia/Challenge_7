@@ -19,7 +19,8 @@ module.exports = {
               password: req.body.password
             })
           //  .then((user) => res.status(201).send(user))
-          .then((user) => res.redirect("post_login"))
+          //.then((user) => res.redirect("post_login"))
+          .then(() => res.status(201).send("Successfully user register"))
           .catch((error) => {
               console.log(error);
               res.status(400).send(error);
